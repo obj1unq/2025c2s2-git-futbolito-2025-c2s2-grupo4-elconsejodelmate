@@ -38,12 +38,23 @@ object lionel {
 			camiseta = "lionel-titular.png"
 		}
 	}
+	method levantarla(){
+		pelota.levantarPelota()
+		pelota.gravedad()
+	}
 }
 
 
 object pelota {
 	const property image="pelota.png"
 	var property position = game.at(5,5)	
+
+	method levantarPelota(){
+		position = position.up(1)
+	}
+	method gravedad(){
+		position = position.down(1)
+	}
 
 	
 }
