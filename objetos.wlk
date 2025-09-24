@@ -22,5 +22,17 @@ object lionel {
 
 object pelota {
 	const property image="pelota.png"
-	var property position = game.at(5,5)	
+	var property position = game.at(5,5)
+
+	method validarPatear(){
+		 if(self.position() != lionel.position()){
+			self.error("no esta en la pelota")
+		 }
+	}
+	method patear() {
+		self.validarPatear()
+		const proximaX = (position.x() + 3).min(game.width()-1)
+		self.position(game.at(proximaX,position.y()))
+	  }
+	
 }
