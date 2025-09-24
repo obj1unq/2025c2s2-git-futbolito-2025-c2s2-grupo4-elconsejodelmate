@@ -34,5 +34,14 @@ object pelota {
 		const proximaX = (position.x() + 3).min(game.width()-1)
 		self.position(game.at(proximaX,position.y()))
 	  }
-	
+	method validarTaquito(){
+		if (self.position() != lionel.position()){
+			self.error("no esta en la pelota")
+		}
+	}
+	method taquito(){
+		self.validarTaquito()
+		const xPostTaquito = (position.x() - 2).max(0)
+		self.position(game.at(xPostTaquito,position.y()))
+	}
 }
